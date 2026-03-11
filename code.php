@@ -5,14 +5,14 @@ include('dbcon.php');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'phpmailer-main/PHPMailer/src/Exception.php';
-require 'phpmailer-main/PHPMailer/src/PHPMailer.php';
-require 'phpmailer-main/PHPMailer/src/SMTP.php';
+require 'phpmailer-main/PHPMailer/Exception.php';
+require 'phpmailer-main/PHPMailer/PHPMailer.php';
+require 'phpmailer-main/PHPMailer/SMTP.php';
 
 // Gmail SMTP Configuration
 define('GMAIL_USERNAME', 'yourgmail@gmail.com');
 define('GMAIL_PASSWORD', 'your_app_password');
-define('SITE_URL', 'http://localhost/PRACTICEWORK');
+define('SITE_URL', 'http://localhost/practicework1');
 
 // Function to send email verification
 function sendemail_verify($name, $email, $verify_token)
