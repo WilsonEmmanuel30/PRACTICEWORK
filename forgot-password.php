@@ -1,8 +1,9 @@
 <?php
-$pagetitle = "Welcome to Registration Form";
+$pagetitle = "Forgot Password";
 include('includes/header.php');
 include('includes/navbar.php');
 ?>
+
 <div class="py-5">
     <div class="container">
         <div class="row justify-content-center">
@@ -24,36 +25,22 @@ include('includes/navbar.php');
 
                 <div class="card">
                     <div class="card-header">
-                        <h5>Registration Form</h5>
+                        <h5>Forgot Password</h5>
                     </div>
                     <div class="card-body">
+                        <p class="text-muted mb-4">Enter your email address and we'll send you a link to reset your password.</p>
 
                         <form action="code.php" method="POST">
                             <div class="form-group mb-3">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" class="form-control" required>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label for="phone">Phone Number</label>
-                                <input type="text" id="phone" name="phone" class="form-control" required>
-                            </div>
-                            <div class="form-group mb-3">
                                 <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your registered email" required>
                             </div>
-                            <div class="form-group mb-3">
-                                <label for="password">Password</label>
-                                <input type="password" id="password" name="password" class="form-control" placeholder="Minimum 6 characters" required>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label for="confirm_password">Confirm Password</label>
-                                <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Re-enter your password" required>
-                            </div><br>
                             <div class="form-group">
-                                <button type="submit" name="register_btn" class="btn btn-primary">REGISTER NOW</button>
+                                <button type="submit" name="forgot_password_btn" class="btn btn-primary">Send Reset Link</button>
                             </div>
                             <div class="mt-3">
-                                <p>Already have an account? <a href="login.php">Login here</a></p>
+                                <p>Remember your password? <a href="login.php">Login here</a></p>
+                                <p>Don't have an account? <a href="register.php">Register here</a></p>
                             </div>
                         </form>
 
