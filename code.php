@@ -19,7 +19,10 @@ function sendemail_verify($name, $email, $verify_token)
 {
     try {
         $mail = new PHPMailer(true);
-
+        
+        // Enable debugging (comment out for production)
+        $mail->SMTPDebug = 0; // Set to 2 for debugging
+        
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
@@ -27,6 +30,8 @@ function sendemail_verify($name, $email, $verify_token)
         $mail->Password = GMAIL_PASSWORD;
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
+        $mail->Timeout = 10;
+        $mail->SMTPKeepAlive = true;
 
         $mail->setFrom(GMAIL_USERNAME, 'Instrumentalist Hub');
         $mail->addAddress($email, $name);
@@ -54,6 +59,7 @@ function sendemail_verify($name, $email, $verify_token)
         $mail->send();
         return true;
     } catch (Exception $e) {
+        error_log("Verification email send error: " . $e->getMessage());
         return false;
     }
 }
@@ -63,7 +69,10 @@ function sendemail_reset($name, $email, $reset_token)
 {
     try {
         $mail = new PHPMailer(true);
-
+        
+        // Enable debugging (comment out for production)
+        $mail->SMTPDebug = 0; // Set to 2 for debugging
+        
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
@@ -71,6 +80,8 @@ function sendemail_reset($name, $email, $reset_token)
         $mail->Password = GMAIL_PASSWORD;
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
+        $mail->Timeout = 10;
+        $mail->SMTPKeepAlive = true;
 
         $mail->setFrom(GMAIL_USERNAME, 'Instrumentalist Hub');
         $mail->addAddress($email, $name);
@@ -99,6 +110,7 @@ function sendemail_reset($name, $email, $reset_token)
         $mail->send();
         return true;
     } catch (Exception $e) {
+        error_log("Password reset email send error: " . $e->getMessage());
         return false;
     }
 }
