@@ -5,9 +5,9 @@ include('dbcon.php');
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'phpmailer-main/PHPMailer/src/Exception.php';
-require 'phpmailer-main/PHPMailer/src/PHPMailer.php';
-require 'phpmailer-main/PHPMailer/src/SMTP.php';
+require 'phpmailer-main/PHPMailer/Exception.php';
+require 'phpmailer-main/PHPMailer/PHPMailer.php';
+require 'phpmailer-main/PHPMailer/SMTP.php';
 
 function sendemail_verify($name, $email, $verify_token)
 {
